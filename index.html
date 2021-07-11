@@ -7,19 +7,41 @@
     <title>Jquery Latihan</title>
 </head>
 <body>
-    <h3>Halo <span id='text'>jQuery</span> </h3>
+    <h3>Halo <span id='text'>jquery</span> </h3>
+    <div>Nama : <label for="infoNama" id="infoNama"></label></div>
+    <div>Jeni Kelamin : <label for="infoJK" id="infoJK"></label></div>
+    <div>Keterangan : <label for="infoktr" id="infoktr"></label></div>
+    <br>
+    <br>
+    <form action="">           
+                <label for="fnama">Nama</label> <br>
+                <input type="text" id="nama"> <br>
+                <label for="jenisKelamin">Jenis Kelamin</label> <br>
+                <select name="jenisKelamin" id="jenisKelamin"> <br>
+                    <option value="laki-laki ">Laki-Laki</option> 
+                    <option value="perempuan ">Perempuan</option>
+                </select>
+                <br><label for="keterangan">Keterangan</label> <br>
+               <textarea name="keterangan" id="keterangan" cols="30" rows="10"></textarea> <br>
+                <button >Submit</button>
+    </form>
 
-    <button type="submit" >Click</button>
+   
     
 
     <script src="jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function(){
-           // $('#text').onClick(alert('Berhasil'))
-           $('button').click(function(){
-               alert('Berhasil')
+       $(document).ready(function(){
+           $('form').submit(function(e){
+               e.preventDefault()
+               var nama = $('#nama').val()
+               var jenisKelamin = $('#jenisKelamin').val()
+               var keterangan = $('#keterangan').val()
+               var hasil = nama + jenisKelamin + keterangan
+               document.getElementById("text").innerHTML = hasil;
+              // $('#text').text(hasil)
            })
-        })
+       })
     </script>
 </body>
 </html>
